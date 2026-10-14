@@ -194,14 +194,14 @@ Seaborn
 
     import Seaborn as students
 
-sns.hisplot()       Histogram
-sns.boxplot()       Box plot
-sns.barplot()       Bar Chart
-sns.scartterplot    Scartter plot
-sns.lineplot()      Line Chart
-sns.Heatmap()       Heatmap
-sns.pairplot()      pairplot
-sns.countplot()     dùng để đếm
+sns.hisplot()       Histogram(biểu đồ tần suất)
+sns.boxplot()       Box plot(biểu đồ hộp)
+sns.barplot()       Bar Chart(tinh trunmg binh)
+sns.scartterplot    Scartter plot (biểu đồ phân tán)
+sns.lineplot()      Line Chart (biểu đồ đường)
+sns.Heatmap()       Heatmap (bản đồ nhiệt)
+sns.pairplot()      pairplot (biểu đồ cặp biến)
+sns.countplot()     dùng để đếm (Count plot)
 
 Mathplotlib 
 
