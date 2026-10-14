@@ -83,3 +83,155 @@ df = pd.read_csv("students.csv")
 print(df)
 print(df.head())
 print(df.shape)
+
+[]: truy xuất theo tên cột hoặc tên điều kiện
+iloc: truy xuất theo vị trí
+
+VD:
+    chọn một cột:
+    df["Score"]
+    Chọn nhiều cột
+    df[["name","Score"]]
+
+    Chọn rheo vị trí:
+    df.iloc[0]
+    df.iloc[0,2]
+
+    Chọn theo điều kiện:
+    df[df["score"] >= 8]
+
+describe(): thống kê cơ bản cho biến số count mean std min 25% 50% 75% max
+
+Phương pháp truy xuất dựa trên ma trận đặc trưng và biến mục tiêu:
+
+X: ma trận đặc trưng
+y: biến mục tiêu(target)
+mỗi một dòng df là một sample
+
+
+print("kích thước:",df.shape)
+
+# chọn các feature
+X = df[["year","Mileage"]]
+
+# Chọn target
+y = df["Price"]
+
+# lọc xe sản xuất từ 2020 trở điều
+new_Cars = df[df[["year"]>= 2020]]
+
+print(new_Cars.head())
+
+Cho datasets sinh viên hãy:
+đưa ra 10 dòng đầu tiên trong danh sách
+đưa ra 5 sinh viên cuối cùng trong danh sách
+đưa ra danh sách tên các đặc trưng trong dataset 
+đưa ra số đặc trưng và số mẫu của dataset
+đưa ra name age gender mayor gta của sv có điểm hơn 8.5 bằng cách tạo feature
+đưa ra target của dataset
+
+
+sử dụng pandas để lấy dữ liệu từ tập iris bằng cách lấy feature , 
+lấy target đưa theo kích thước của dataset 
+hiển thị các cột của dataset hiển thị thông tin của sepal_length và sepal_witdh 
+lọc các mẫu có sepal_length > 5
+
+Mẫu:
+import pandas as pd
+from sklearn.datasets import load_iris
+data=load_iris()
+x=data.data
+y=data.target
+df=pd.DataFrame(x,columns=["SepalLengthCm","SepalWidthCm","PetalLengthCm","PetalWidthCm"])
+b=x.shape[1]
+c=x.shape[0]
+d=df.columns
+e=df[["SepalLengthCm", "SepalWidthCm"]].describe()
+f=df[df["SepalLengthCm"] > 5]
+print("cac dac trung: ",x)
+print("taget: ",y)
+print("so dac trung: ",b)
+print("so mau: ",c)
+print("ten cac cot: ",d)
+print("sepal_length va sepal_width: ",e)
+print("mau lon hon 5: ",f)
+
+VD:
+
+iris=load_iris()
+x=iris.data
+y=iris.target
+b=iris.data.shape[1]
+c=iris.data.shape[0]
+d=iris.feature_names
+e=iris.data[:, :2]
+f=iris.data[iris.data[:, 0] > 5]
+print("cac dac trung: ",x)
+print("taget: ",y)
+print("so dac trung: ",b)
+print("so mau: ",c)
+print("ten cac cot: ",d)
+print("sepal_length va sepal_width: ")
+print(e)
+print("mau lon hon 5: ")
+print(f)
+
+data=load_iris()
+x=data.data
+y=data.target
+df=pd.DataFrame(x,columns=["SepalLengthCm","SepalWidthCm","PetalLengthCm","PetalWidthCm"])
+b=x.shape[1]
+c=x.shape[0]
+d=df.columns
+e=df[["SepalLengthCm", "SepalWidthCm"]].describe()
+f=df[df["SepalLengthCm"] > 5]
+
+2 thư viện để vẽ đồ thị Mathplotlib/Seaborn
+
+Các kiểu đồ thị Histogram, Box plot, Bar Chart, Scartter Plot. Heatmap, Pải Plot.
+
+Seaborn
+
+    import Seaborn as students
+
+sns.hisplot()       Histogram
+sns.boxplot()       Box plot
+sns.barplot()       Bar Chart
+sns.scartterplot    Scartter plot
+sns.lineplot()      Line Chart
+sns.Heatmap()       Heatmap
+sns.pairplot()      pairplot
+sns.countplot()     dùng để đếm
+
+Mathplotlib 
+
+    import matplotlib as plt
+
+Biểu diễn điểm dữ liệu x y
+
+Một cập xy tương đương 1 điểm trên tọa độ, trong môn này tương ứng 1 Mẫu
+
+plt.scartter(x,y): vẽ các điểm
+plt.plot(x,y): nối các điểm thành đường đồ thị
+plt.xlabel(),plt.ylabel() đặt tên trục
+plt.title() đặt tiêu điều
+plt.grid() thêm lưới
+plt.show() 
+
+Biểu Đồ Histogram
+
+Dùng để biểu diễn phân bổ của 1 biến số
+
+Chiều cao của 1 cột là tần số xuất hiện  hoặc số lượng
+histogram dùng để phát hiện tập trung lệch đỉnh hoặc dư thừa
+
+Hàm vẽ:
+
+plt.hist()
+sns.histplot()
+
+VD:
+
+sns.hisplot(iris["sepal_length"],bins = 10,kde = 10)
+
+plt.hist(iris["sepal_length"],bins = 10)
